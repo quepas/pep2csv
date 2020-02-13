@@ -1,3 +1,6 @@
 [submodule "third-party/antlr4"]
 	path = third-party/antlr4
 	url = https://github.com/antlr/antlr4.git
+[submodule "third-party/csv-parser"]
+	path = third-party/csv-parser
+	url = https://github.com/vincentlaucsb/csv-parser.git

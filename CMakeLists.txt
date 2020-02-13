@@ -16,7 +16,10 @@ execute_process(
         COMMAND_ECHO STDOUT
 )
 
-include_directories( ${ANTLR_CPP_DIR}/runtime/src )
+# Add csv-parser
+add_subdirectory( third-party/csv-parser )
+
+include_directories( ${ANTLR_CPP_DIR}/runtime/src third-party/csv-parser/include )
 # Group generated sources
 set( PEP_TRACE_PARSER_DIR ${PROJECT_SOURCE_DIR}/src/parser )
 set( PEP_TRACE_SOURCES
@@ -32,4 +35,4 @@ add_executable( pep2csv
         ${PEP_TRACE_SOURCES}
         src/main.cpp
         src/PEPTracesListener.cpp )
-target_link_libraries( pep2csv antlr4_static )
+target_link_libraries( pep2csv antlr4_static csv )
