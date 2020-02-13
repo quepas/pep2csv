@@ -1,0 +1,14 @@
+//
+// Created by quepas on 13/02/2020.
+//
+
+#ifndef PEP2CSV_PROJECT_PEPTRACESVISITOR_H
+#define PEP2CSV_PROJECT_PEPTRACESVISITOR_H
+
+
+class PEPTracesVisitor {
+
+};
+
+
+#endif //PEP2CSV_PROJECT_PEPTRACESVISITOR_H

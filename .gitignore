@@ -42,6 +42,7 @@ CPackSourceConfig.cmake
 Makefile
 bin/
 dist/
+cmake-build-debug/
 
 # Arrr-ay project
 src/parser/
