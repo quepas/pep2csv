@@ -8,13 +8,24 @@ jobs:
     steps:
     - name: "Install uuid library"
       run: | 
-        sudo apt-get update
-        sudo apt-get install uuid-dev
+        apt-get update
+        apt-get install uuid-dev
+    - name: "Install gcc/g++ 9.0"
+      run: |
+        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+        apt update
+        apt install software-properties-common -y
+        add-apt-repository ppa:ubuntu-toolchain-r/test -y
+        apt update
+        apt install gcc-9 g++-9 -y
     - name: "Checkout the repository"
       uses: actions/checkout@v2
     - name: "Checkout submodules"
       run: git submodule update --init --recursive
     - name: "Generate build scripts as Unix Makefile"
-      run: cmake CMakeLists.txt
+      run: |
+        export CC=/usr/bin/gcc-9
+        export CXX=/usr/bin/g++-9
+        cmake CMakeLists.txt
     - name: "Build project"
       run: make
