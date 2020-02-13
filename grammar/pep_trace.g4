@@ -6,12 +6,12 @@ fragment DIGIT : [0-9];
 fragment LETTER : [a-zA-Z];
 fragment COLON : ':';
 
-INT : DIGIT+;
+INT : '-'? DIGIT+;
 EVENT : LETTER (LETTER | '_' | COLON | DIGIT)*;
 TRACE_PROPERTY : COLON (LETTER | DIGIT | '_')+;
 
 // Grammar rules
-pep: trace (NEWLINE trace)*;
+pep: trace (NEWLINE trace)* NEWLINE? EOF;
 
 trace
     : '@trace_start' trace_properties NEWLINE
