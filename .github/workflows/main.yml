@@ -12,7 +12,7 @@ jobs:
         sudo apt-get install uuid-dev
     - name: "Install gcc/g++ 9.0"
       run: |
-        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+        sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
         sudo apt update
         sudo apt install software-properties-common -y
         sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
