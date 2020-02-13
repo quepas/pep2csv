@@ -8,16 +8,16 @@ jobs:
     steps:
     - name: "Install uuid library"
       run: | 
-        apt-get update
-        apt-get install uuid-dev
+        sudo apt-get update
+        sudo apt-get install uuid-dev
     - name: "Install gcc/g++ 9.0"
       run: |
         wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-        apt update
-        apt install software-properties-common -y
-        add-apt-repository ppa:ubuntu-toolchain-r/test -y
-        apt update
-        apt install gcc-9 g++-9 -y
+        sudo apt update
+        sudo apt install software-properties-common -y
+        sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+        sudo apt update
+        sudo apt install gcc-9 g++-9 -y
     - name: "Checkout the repository"
       uses: actions/checkout@v2
     - name: "Checkout submodules"
