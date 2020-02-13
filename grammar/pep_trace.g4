@@ -11,7 +11,7 @@ EVENT : LETTER (LETTER | '_' | COLON | DIGIT)*;
 TRACE_PROPERTY : COLON (LETTER | DIGIT | '_')+;
 
 // Grammar rules
-pep: trace* ;
+pep: trace (NEWLINE trace)*;
 
 trace
     : '@trace_start' trace_properties NEWLINE
