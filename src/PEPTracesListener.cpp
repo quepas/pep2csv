@@ -26,7 +26,6 @@ void PEPTracesListener::enterEvents_list(pep_traceParser::Events_listContext *co
     current_trace_properties.performance_events.clear();
     current_trace_properties.performance_events.reserve(context->EVENT().size());
     for (const auto& event : context->EVENT()) {
-        std::cout << "event=" << event->getText() << std::endl;
         current_trace_properties.performance_events.push_back(event->getText());
     }
 }
@@ -51,6 +50,7 @@ void PEPTracesListener::enterRow_values(pep_traceParser::Row_valuesContext *cont
 }
 
 void PEPTracesListener::enterPep(pep_traceParser::PepContext *context) {
+    // Write here the CSV file header
     (*csv_writer) << vector{
         "trace_id",
         "matlab",
@@ -63,7 +63,6 @@ void PEPTracesListener::enterPep(pep_traceParser::PepContext *context) {
         "metrics",
         "time",
         "value"};
-    // Write here the header
     current_trace_properties.trace_id = 0;
 }
 
