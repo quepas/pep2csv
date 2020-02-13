@@ -10,9 +10,9 @@
 
 class PEPTracesListener : public pep_traceBaseListener {
 public:
-    PEPTracesListener(const std::string &csv_file_path);
+    explicit PEPTracesListener(const std::string &csv_file_path);
 
-    virtual ~PEPTracesListener();
+    ~PEPTracesListener() override;
 
     void enterPep(pep_traceParser::PepContext *context) override;
 
@@ -35,6 +35,9 @@ private:
         int N;
         int num_in_process;
         std::vector<std::string> performance_events;
+        std::vector<long long int> prev_pep_values;
+        int num_row_values;
+        bool has_address_value;
     } current_trace_properties;
 
     std::ofstream input_file;
