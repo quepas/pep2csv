@@ -31,9 +31,10 @@ set( PEP_TRACE_SOURCES
         ${PEP_TRACE_PARSER_DIR}/pep_traceParser.cpp
         ${PEP_TRACE_PARSER_DIR}/pep_traceVisitor.cpp )
 
-
 add_executable( pep2csv
         ${PEP_TRACE_SOURCES}
         src/main.cpp
-        src/PEPTracesListener.cpp )
+        src/PEPTracesListener.cpp
+        src/FastGrammarlessParser.cpp )
+
 target_link_libraries( pep2csv antlr4_static csv )

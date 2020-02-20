@@ -7,6 +7,7 @@
 
 #include "csv.hpp"
 #include "parser/pep_traceBaseListener.h"
+#include "TraceProperties.hpp"
 
 class PEPTracesListener : public pep_traceBaseListener {
 public:
@@ -25,20 +26,7 @@ public:
     void enterRow_values(pep_traceParser::Row_valuesContext *context) override;
 
 private:
-    struct TraceProperties {
-        int trace_id;
-        std::string matlab_version;
-        int num_threads;
-        int num_process;
-        std::string benchmark;
-        std::string version;
-        int N;
-        int num_in_process;
-        std::vector<std::string> performance_events;
-        std::vector<long long int> prev_pep_values;
-        int num_row_values;
-        bool has_address_value;
-    } current_trace_properties;
+    TraceProperties current_trace_properties;
 
     std::ofstream input_file;
     csv::CSVWriter<std::ofstream>* csv_writer;
