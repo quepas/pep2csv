@@ -7,7 +7,7 @@ fragment LETTER : [a-zA-Z];
 fragment COLON : ':';
 
 INT : '-'? DIGIT+;
-EVENT : LETTER (LETTER | '_' | COLON | DIGIT)*;
+EVENT : LETTER (LETTER | '_' | '=' | COLON | DIGIT)*;
 TRACE_PROPERTY : COLON (LETTER | DIGIT | '_')+;
 
 // Grammar rules
